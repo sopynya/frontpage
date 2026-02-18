@@ -1,16 +1,4 @@
 .page {
-  --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #F8F9FA;
-  --color-border: #E1E4E8;
-  --color-border-subtle: #ECEEF0;
-  --color-accent-subtle: #EFF6FF;
-
-  --color-text-primary: #1A1D21;
-  --color-text-secondary: #57606A;
-  --color-text-tertiary: #8B949E;
-
-  --color-accent: #2563EB;
-  --color-accent-hover: #1D4ED8;
 
   min-height: 100vh;
   font-family: var(--font-inter);
@@ -140,20 +128,4 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
 
-  .page {
-    --color-bg-primary: #0D1117;
-    --color-bg-secondary: #161B22;
-    --color-border-subtle: #21262D;
-    --color-accent-subtle: #1A2332;
-    --color-border: #30363D;;
-
-    --color-text-primary: #E6EDF3;
-    --color-text-secondary: #8B949E;
-    --color-text-tertiary: #6E7681;
-
-    --color-accent: #58A6FF;
-    --color-accent-hover: #79C0FF;
-  }
-}

@@ -1,24 +1,46 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F8F9FA;
+  --color-bg-tertiary: #F1F3F5;
+  --color-border: #E1E4E8;
+  --color-border-subtle: #ECEEF0;
+  --color-accent-subtle: #EFF6FF;
+
+  --color-text-primary: #1A1D21;
+  --color-text-secondary: #57606A;
+  --color-text-tertiary: #8B949E;
+
+  --color-accent: #2563EB;
+  --color-accent-hover: #1D4ED8;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-bg-primary: #0D1117;
+    --color-bg-secondary: #161B22;
+    --color-bg-tertiary: #21262D;
+    --color-border-subtle: #21262D;
+    --color-accent-subtle: #1A2332;
+    --color-border: #30363D;;
+
+    --color-text-primary: #E6EDF3;
+    --color-text-secondary: #8B949E;
+    --color-text-tertiary: #6E7681;
+
+    --color-accent: #58A6FF;
+    --color-accent-hover: #79C0FF;
   }
 }
 
 html,
 body {
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
   max-width: 100vw;
   overflow-x: hidden;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,10 +55,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
