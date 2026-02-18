@@ -7,24 +7,57 @@
     padding: 20px 15px;
     border-right: 1px solid var(--color-border);
 }
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 .main button {
     background-color: transparent;
     color: var(--color-text-primary);
     font-size: 14px;
     border: none;
     padding: 10px 15px;
+    border-radius: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-family: var(--font-inter);
 }
 .main button img {
-    width: 13px;
+    width: 15px;
     margin-right: 10px;
     
+}
+.main button span {
+    display: flex;
+    align-items: center;
+}
+.main button:hover {
+    background-color: var(--color-accent-subtle);
+}
+.main button.active {
+    background-color: var(--color-accent-subtle);
+    color: var(--color-accent-subtle);
 }
 .main button.active img {
     filter: invert(23%) sepia(94%) saturate(7481%) hue-rotate(213deg) brightness(95%) contrast(81%);
 }
+.line {
+    margin: 20px 0;
+    border: 1px solid var(--color-border);
+    opacity: 0.7;
+}
+.title {
+    font-family: var(--font-inter);
+    font-weight: 800;
+    font-size: 12px;
+    margin-left: 15px;
+    color: var(--color-text-tertiary);
+}
 @media (prefers-color-scheme: dark) {
     .main button img {
         filter: invert();
-        
     }
 }

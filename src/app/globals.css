@@ -12,6 +12,7 @@
 
   --color-accent: #2563EB;
   --color-accent-hover: #1D4ED8;
+  --color-accent-subtle: #EFF6FF;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,7 +22,7 @@
     --color-bg-tertiary: #21262D;
     --color-border-subtle: #21262D;
     --color-accent-subtle: #1A2332;
-    --color-border: #30363D;;
+    --color-border: #30363D;
 
     --color-text-primary: #E6EDF3;
     --color-text-secondary: #8B949E;
@@ -29,6 +30,7 @@
 
     --color-accent: #58A6FF;
     --color-accent-hover: #79C0FF;
+    --color-accent-subtle: #1A2332;
   }
 }
 
