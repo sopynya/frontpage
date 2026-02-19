@@ -1,11 +1,16 @@
 import Header from "@/components/Header";
 import Providers from "../providers";
 import Sidebar from "@/components/Sidebar";
+import { getUserIdFromToken } from "@/lib/auth"
 
-export default function SiteLayout({children}) {
+export default async function SiteLayout({children}) {
+    const userId = await getUserIdFromToken();
+
+    let user = userId ? true : false;
+
     return(
         <Providers>
-            <Header />
+            <Header user={user}/>
             <Sidebar />
         </Providers>
     )

@@ -5,6 +5,7 @@
   --color-border: #E1E4E8;
   --color-border-subtle: #ECEEF0;
   --color-accent-subtle: #EFF6FF;
+  --color-surface: #FFFFFF;
 
   --color-text-primary: #1A1D21;
   --color-text-secondary: #57606A;
@@ -23,6 +24,7 @@
     --color-border-subtle: #21262D;
     --color-accent-subtle: #1A2332;
     --color-border: #30363D;
+    --color-surface: #161B22;
 
     --color-text-primary: #E6EDF3;
     --color-text-secondary: #8B949E;

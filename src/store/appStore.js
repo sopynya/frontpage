@@ -1,17 +1,19 @@
 import { create } from "zustand";
 export const useAppStore = create((set, get) => ({
-    user: null,
-    guest: true,
-    feeds: [],
+    guest: false,
 
-    hydrate: (data) => {
-        set({
-            user: data?.user ?? null,
-            feeds: data?.feed ?? []
-        })
-    },
+  categories: [],
+  feeds: [],
+
+  setGuest: (value) => set({ guest: value }),
+
+  setData: ({ categories, feeds }) =>
+    set({ categories, feeds }),
+
+  addFeed: (feed) =>
+    set((state) => ({
+      feeds: [...state.feeds, feed],
+    })),
+
     
-    setGuest: (data) => {
-        set({guest: data})
-    }
 }))

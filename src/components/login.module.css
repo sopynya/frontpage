@@ -43,6 +43,7 @@
     background-color: transparent;
     border-radius: 5px;
     border: 2px solid var(--color-border);
+    color: var(--color-text-primary);
 }
 .form button {
     background-color: var(--color-accent);
@@ -56,6 +57,7 @@
     width: 200px;
     display: block;
     cursor: pointer;
+    color: white;
 }
 .form button:disabled {
     opacity: 0.8;

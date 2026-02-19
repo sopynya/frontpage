@@ -1,4 +1,5 @@
 "use client";
+import Link from 'next/link';
 import styles from './landing.module.css';
 import Login from './Login';
 import Register from './Register';
@@ -14,7 +15,7 @@ export default function Landing() {
                 <h1><img src="/icon.png" /> Frontpage</h1>
     
                 <nav className={styles.nav}>
-                    <button className={styles.guest}>Try as guest</button>
+                    <Link href="/discover" className={styles.guest}>Try as guest</Link>
                     <button className={styles.auth} onClick={() => setRegister(true)}>Sign up</button>
                     <button className={styles.auth} onClick={() => setLogin(true)}>Log in</button>
                 </nav>
