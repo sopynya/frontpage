@@ -28,10 +28,13 @@ Frontpage is an website for you to organize and view the latest articles of your
 
 **The problem I was solving:**
 The duality between the guest state and user state. It made me confused on how to make both guest and logged users to experience the same while using the website.
+
 **My approach:**
 I decided to use zustand so i can have an global state and use less useEffect.
+
 **Why I chose this approach:**
 I chose it because this way i can save things locally more easily and dont need to keep worrying about putting many components one inside the other or worry about the order of my folders and components.
+
 **What I'd do differently:**
 I'm not sure what i would do differently since this looked like the only and easiest solution, but im open for sugestions.
 
@@ -70,7 +73,7 @@ At the start of this project AI wasnt helping very much, but towards the end it 
 
 ### What I Learned
 
-I started to learn that the more i explain to the ia, the more instructions i give the better.
+I started to learn that the more i explain to the AI and the more instructions i give, the better.
 
 ---
 
