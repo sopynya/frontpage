@@ -2,6 +2,8 @@
 import styles from "./sidebar.module.css";
 import { useState, useEffect, useMemo } from "react";
 import AddCategory from "@/components/AddCategory";
+import guestJson from "@/data/sample.json";
+import { transformGuestJson } from "@/lib/guestJson";
 import { useAppStore } from "@/store/appStore";
 import { useQuery } from "@tanstack/react-query";
 import {calculateNewArticles} from "@/lib/calculateNewArticles";
@@ -19,6 +21,10 @@ export default function Sidebar() {
     const lastFetched = useAppStore((s) => s.lastFetchedAt);
     const setLastFetched = useAppStore((s) => s.setLastFetchedAt);
     const readArticles = useAppStore((s) => s.readArticles);
+    const setGuest = useAppStore((s) => s.setGuest);
+    const setData = useAppStore((s) => s.setData);
+
+    const [feedStatuses, setFeedStatuses] = useState([]);
 
 
     const { data: lastData } = useQuery({
@@ -35,6 +41,20 @@ export default function Sidebar() {
             setLastFetched(lastData)
         }
     }, [lastFetched, setLastFetched]);
+
+    useEffect(() => {
+        // fetch feed statuses (green/yellow/red)
+        let mounted = true;
+        fetch('/api/feeds/status')
+            .then((r) => r.json())
+            .then((data) => {
+                if (!mounted) return;
+                if (data && data.statuses) setFeedStatuses(data.statuses);
+            })
+            .catch((err) => console.error('Failed to fetch feed statuses', err));
+
+        return () => { mounted = false };
+    }, [feeds]);
 
     const { newByFeed, newByCategory, totalNew } = useMemo(() => {
         if (guest) {
@@ -124,6 +144,36 @@ export default function Sidebar() {
                     )
                 })}
             </div>
+
+            <div className={styles.footer}>
+                <p className={styles.status}>Feed status <span />
+                    <span className={styles.statusDot} title="Overall status" style={{marginLeft:8, verticalAlign:'middle', display: 'inline-block', width:12, height:12, borderRadius:6, background: getOverallColor(feedStatuses)}} />
+                </p>
+                { !guest && <p onClick={handleLogout} style={{cursor: "pointer", color: '#992a2a', textAlign: 'center'}}>Logout</p>}
+            </div>
         </div>
     );
+}
+
+function getOverallColor(statuses) {
+    if (!Array.isArray(statuses) || statuses.length === 0) return 'grey';
+    // if any red -> red, else if any yellow -> yellow, else green
+    if (statuses.some(s => s.status === 'red')) return '#dc2626';
+    if (statuses.some(s => s.status === 'yellow')) return '#d97706';
+    return '#16a34a';
+}
+
+async function handleLogout() {
+    try {
+        await fetch('/api/auth/logout', { method: 'POST' });
+        // reset app state to guest and load sample data
+        const transformed = transformGuestJson(guestJson);
+        const setGuest = useAppStore.getState().setGuest;
+        const setData = useAppStore.getState().setData;
+        if (setGuest) setGuest(true);
+        if (setData) setData(transformed);
+        window.location.href = '/discover';
+    } catch (err) {
+        console.error('Failed to logout', err);
+    }
 }
