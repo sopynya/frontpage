@@ -39,7 +39,7 @@
 }
 .main button.active {
     background-color: var(--color-accent-subtle);
-    color: var(--color-accent-subtle);
+    color: var(--color-accent);
 }
 .main button.active img {
     filter: invert(23%) sepia(94%) saturate(7481%) hue-rotate(213deg) brightness(95%) contrast(81%);
@@ -81,6 +81,9 @@
 .cinfo.active {
     background-color: var(--color-accent-subtle);
 }
+.cinfo.active .cname p {
+    color: var(--color-accent);
+}
 .cinfo:hover {
     background-color: var(--color-accent-subtle);
 }
@@ -112,6 +115,14 @@
     justify-content: space-between;
     padding:  10px 15px;
     cursor: pointer;
+    margin: 5px 0;
+    border-radius: 10px;
+}
+.feed.active {
+    background-color: var(--color-accent-subtle);
+}
+.feed.active .fname p {
+    color: var(--color-accent);
 }
 .fname {
     display: flex;
@@ -122,7 +133,11 @@
     color: var(--color-text-secondary);
     font-family: var(--font-inter);
 }
-.fname p:hover {
+.feed:hover {
+    background-color: var(--color-accent-subtle);
+    opacity: 0.8;
+}
+.feed:hover .fname p {
     color: var(--color-text-primary);
 }
 @media (prefers-color-scheme: dark) {

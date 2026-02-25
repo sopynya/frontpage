@@ -7,12 +7,13 @@ import Link from "next/link";
 
 export default function AddFeed({onClose}) {
     const [site, setSite] = useState("");
-    const [category, setCategory] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     const guest = useAppStore((s) => s.guest)
     const addFeed = useAppStore((s) => s.addFeed)
+    const categories = useAppStore((s) => s.categories);
 
     async function add(e) {
         e.preventDefault();
@@ -26,7 +27,7 @@ export default function AddFeed({onClose}) {
             const res = await fetch(endpoint, {
                 method: "POST",
                 headers: {"Content-Type": "application/json",},
-                body: JSON.stringify({url: site, categoryId: category})
+                body: JSON.stringify({url: site, categoryId: selectedCategory})
             });
             const data = await res.json()
             if (!res.ok) {
@@ -54,7 +55,18 @@ export default function AddFeed({onClose}) {
                     <input type="url" placeholder="Feed URL " value={site} onChange={(e) => setSite(e.target.value)} required/>
                     <label>Categories</label>
                     <div className={styles.category}>
-                        <button onClick={() => setCategory(null)}>None</button>
+                        <button className={selectedCategory === null ? styles.active : ""} type="button" onClick={() => setSelectedCategory(null)}>None</button>
+
+                        {categories.map((category) => (
+                            <button 
+                            className={category.name === selectedCategory ? styles.active : ""}
+                                key={category.id}
+                                type="button"
+                                onClick={() => setSelectedCategory(category.name)}
+                                >
+                            {category.name}
+                            </button>
+                        ))}
                     </div>
                     <button type='submit' disabled={loading} className={styles.done}>{loading ? 'Loading...' : 'Done'}</button>
                     {error && <p className={styles.error}>{error}</p>}

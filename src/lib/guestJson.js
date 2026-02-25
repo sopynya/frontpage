@@ -2,8 +2,8 @@ export function transformGuestJson(data) {
   const categories = []
   const feeds = []
 
-  data.categories.forEach(cat => {
-    const categoryId = crypto.randomUUID()
+  data.categories.forEach((cat, catIndex) => {
+    const categoryId = `cat-${catIndex}`
 
     categories.push({
       id: categoryId,
@@ -11,9 +11,9 @@ export function transformGuestJson(data) {
       color: randomColor(),
     })
 
-    cat.feeds.forEach(feed => {
+    cat.feeds.forEach((feed, feedIndex) => {
       feeds.push({
-        id: crypto.randomUUID(),
+        id: `feed-${catIndex}-${feedIndex}`,
         title: feed.title,
         description: feed.description,
         site_url: feed.siteUrl,

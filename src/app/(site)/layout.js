@@ -11,7 +11,10 @@ export default async function SiteLayout({children}) {
     return(
         <Providers>
             <Header user={user}/>
-            <Sidebar />
+            <div style={{display: "flex"}}>
+                <Sidebar />
+                {children}
+            </div>
         </Providers>
     )
 }

@@ -1,0 +1,68 @@
+.page {
+  width: 90%;
+  margin: 24px auto;
+  font-family: var(--font-inter);
+}
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.feedList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.feedCard {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  padding: 12px;
+  border-radius: 8px;
+}
+.feedImage {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #efefef;
+}
+.feedMeta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.feedTitle {
+  font-weight: 600;
+  margin: 0 0 4px 0;
+}
+.feedUrl {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+.feedMeta .addBtn {
+  margin-top: 8px;
+  align-self: flex-start;
+}
+.addBtn {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--color-text-primary);
+}
+.addBtn.added {
+  background: var(--color-accent-subtle);
+  color: var(--color-text-secondary);
+}
+
+.bottomControls {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}

@@ -47,7 +47,9 @@
 
 .category {
     padding: 5px;
-
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 .category button {
     border:2px solid var(--color-border);
