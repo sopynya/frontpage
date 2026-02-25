@@ -107,7 +107,12 @@ export default function DiscoverPage() {
       </div>
 
       <div className={styles.feedList}>
-        {filtered.map((f) => {
+        {filtered.length === 0 ? (
+          <div className={styles.emptyState}>
+            <p>No items found</p>
+          </div>
+        ) : (
+          filtered.map((f) => {
           const key = f.site_rss || f.siteUrl || f.site_url || f.feedUrl || f.id;
           const isAdded = storeFeeds.some((s) => (s.site_rss || s.site_url) === (f.site_rss || f.site_url || f.siteUrl));
           return (
@@ -124,7 +129,8 @@ export default function DiscoverPage() {
               </div>
             </div>
           );
-        })}
+        })
+        )}
       </div>
     </div>
   );

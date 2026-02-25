@@ -62,3 +62,33 @@
     cursor: pointer;
     font-weight: 100;
 }
+.menuBtn {
+    display: none;
+    width: 20px;
+    cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+    .menuBtn {
+        filter: invert();;
+    }
+}
+@media (max-width: 600px) {
+    .nav h1 {
+        display: none
+    }
+    .header {
+        padding: 10px;
+    }
+    .nav a {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+    .search input {
+        width: 150px;
+        font-size: 14px;
+    }
+    .menuBtn {
+        display: block;
+    }
+}

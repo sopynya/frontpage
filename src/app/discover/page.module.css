@@ -66,3 +66,12 @@
   justify-content: center;
   margin-top: 18px;
 }
+.emptyState {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: var(--color-text-secondary);
+  font-size: 16px;
+}

@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import Providers from "../providers";
-import Sidebar from "@/components/Sidebar";
 import { getUserIdFromToken } from "@/lib/auth"
 
 export default async function SiteLayout({children}) {
@@ -11,10 +10,7 @@ export default async function SiteLayout({children}) {
     return(
         <Providers>
             <Header user={user}/>
-            <div style={{display: "flex"}}>
-                <Sidebar />
                 {children}
-            </div>
         </Providers>
     )
 }

@@ -12,9 +12,11 @@ export const useAppStore = create((set, get) => ({
     searchQuery: "",
     readArticles: {}, // { articleId: true }
     digestMode: false,
+    showSB: true,
     
 
   setGuest: (value) => set({ guest: value }),
+    setShowSB: (value) => set({ showSB: value }),
   setTypeScreen: (value) => set({ typescreen: value }),
   setGridLayout: (layout) => set({ gridLayout: layout }),
   setSearchQuery: (query) => set({ searchQuery: query }),

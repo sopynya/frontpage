@@ -147,7 +147,7 @@ export default function Sidebar() {
 
             <div className={styles.footer}>
                 <p className={styles.status}>Feed status <span />
-                    <span className={styles.statusDot} title="Overall status" style={{marginLeft:8, verticalAlign:'middle', display: 'inline-block', width:12, height:12, borderRadius:6, background: getOverallColor(feedStatuses)}} />
+                    <span className={styles.statusDot} title="Overall status" style={{marginLeft:8, verticalAlign:'middle', display: 'inline-block', width:8, height:8, borderRadius:6, background: getOverallColor(feedStatuses)}} />
                 </p>
                 { !guest && <p onClick={handleLogout} style={{cursor: "pointer", color: '#992a2a', textAlign: 'center'}}>Logout</p>}
             </div>

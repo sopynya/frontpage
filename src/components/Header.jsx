@@ -22,6 +22,8 @@ export default function Header({user}) {
     const setGridLayout = useAppStore((s) => s.setGridLayout);
     const searchQuery = useAppStore((s) => s.searchQuery);
     const setSearchQuery = useAppStore((s) => s.setSearchQuery);
+    const setShowSB = useAppStore((s) => s.setShowSB);
+    const showSB = useAppStore((s) => s.showSB);
 
     const saved = useAppStore((s) => s.saved);
     const setSaved = useAppStore((s) => s.setSaved);
@@ -121,6 +123,7 @@ export default function Header({user}) {
         <header className={styles.header}>
             <nav className={styles.nav}>
                 <h1><img src="/icon.png"/>Frontpage</h1>
+                <img src="/align.svg"  className={styles.menuBtn} onClick={() => setShowSB(!showSB)} />
                 <Link className={pathname === "/feed" ? styles.active : ""} href='/feed'>Feed</Link>
                 <Link className={ pathname === "/discover" ? styles.active : ""} href='/discover'>Discover</Link>
             </nav>

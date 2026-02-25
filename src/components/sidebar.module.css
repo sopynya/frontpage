@@ -164,3 +164,32 @@
         filter: invert();
     }
 }
+@media (max-width: 600px)  {
+    .sidebar {
+        padding: 10px;
+        max-width: 300px;
+    }
+    .main button {
+        font-size: 13px;
+        min-width: 170px;
+    }
+    .main button img {
+        width: 12px;
+        margin-right: 3px;
+    }
+     .title {
+        margin: 0 5px;
+     }
+     .title p {
+        font-size: 13px;
+     }
+     .fname p {
+        font-size: 12px;
+     }
+     .cname p {
+        font-size: 13px;
+     }
+    .number {
+        font-size: 11px;
+    }
+}

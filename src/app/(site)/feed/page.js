@@ -2,6 +2,7 @@
 import { useAppStore } from "@/store/appStore";
 import { useState, useEffect, useMemo } from "react";
 import styles from "./page.module.css";
+import Sidebar from "@/components/Sidebar";
 
 export default function FeedHome() {
     const guest = useAppStore((s) => s.guest);
@@ -62,7 +63,7 @@ export default function FeedHome() {
                     fetch("/api/articles/read", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ articleUrl: item.link }),
+                        body: JSON.stringify({ articleId: item.id }),
                     }).catch((err) => console.error("Failed to mark as read:", err));
                 });
             } catch (err) {
@@ -120,6 +121,10 @@ export default function FeedHome() {
     const displayTitle = getDisplayTitle();
 
     return(
+        <div style={{display: 'flex'}}>
+            <div className={styles.sidebar} style={{ display: useAppStore((s) => s.showSB) ? "block" : "none" }}>
+                <Sidebar />
+            </div>
         <div className={styles.page}>
             <div className={styles.header}>
                 <div className={styles.titlesection}>
@@ -162,17 +167,22 @@ export default function FeedHome() {
                     >
                         Digest
                     </button>
-                    <button onClick={handleRefresh}>Refresh</button>
+                    <button className={styles.refreshBtn} onClick={handleRefresh}>Refresh</button>
                     <button onClick={handleMarkAllAsRead}>Mark all as read</button>
                 </div>
             </div>
 
             <div className={`${styles.articles} ${styles[gridLayout]}`}>
-                {filteredItems.map((item) => {
-                    const isSaved = saved.some((s) => s.id === item.id);
-                    const isRead = readArticles[item.id];
-                    return (
-                        <div key={item.id} className={`${styles.article} ${!isRead ? styles.unread : ""}`}>
+                {filteredItems.length === 0 ? (
+                    <div className={styles.emptyState}>
+                        <p>No items found</p>
+                    </div>
+                ) : (
+                    filteredItems.map((item) => {
+                        const isSaved = saved.some((s) => s.id === item.id);
+                        const isRead = readArticles[item.id];
+                        return (
+                            <div key={item.id} className={`${styles.article} ${!isRead ? styles.unread : ""}`}>
                             {item.feed_image && (
                                 <img src={item.feed_image} alt={item.feed_title} className={styles.feedImage} />
                             )}
@@ -198,8 +208,10 @@ export default function FeedHome() {
                             </div>
                         </div>
                     );
-                })}
+                    })
+                )}
             </div>
+        </div>
         </div>
     )
 }

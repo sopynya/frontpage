@@ -68,3 +68,8 @@ border: 1px solid var(--color-border);
     text-align: center;
     margin-top: 10px;
 }
+@media (max-width: 600px) {
+  .modal {
+    width: 90%;
+  }
+}

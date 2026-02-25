@@ -113,18 +113,37 @@
 }
 
 @media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
+  .header {
+    padding: 10px; 
   }
-
-  .intro {
-    gap: 16px;
+  .header h1 {
+    gap: 5px;
+    font-size: 18px;
   }
+  .header h1 img {
+    width: 20px;
+  }
+  .auth  {
+    font-size: 14px;
+    padding: 5px;
+  }
+  .guest {
+    font-size: 14px;
+    padding: 5px;
+  }
+  .nav {
+    gap: 5px;
+  }
+  .hero img {
+    width: 350px;
+  }
+  .hero p {
+    font-size: 20px;
 
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
+  }
+  .hero {
+    padding: 15px;
+    flex-direction: column;
   }
 }
 
